@@ -1,0 +1,119 @@
+
+@import url("https://fonts.google.com/specimen/Hanken+Grotesk");
+
+// variables
+$Light-slate-blue: hsl(252, 100%, 67%);
+$Light-royal-blue: hsl(241, 81%, 54%);
+
+$Violet-blue-circle: hsla(256, 72%, 46%, 1);
+$Persian-blue-circle: hsla(241, 72%, 46%, 0);
+// end of variables 
+*{
+
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+@mixin flexbox($align, $direction){
+    display: flex;
+    justify-content: $align;
+    flex-direction: $direction;
+    align-items: center;
+}
+body{
+font-family: 'Hanken Grotesk' , sans-serif;
+min-height: 100vh;
+@include flexbox( center, column);
+}
+
+p{
+    font-size: 18px;
+}
+
+.container{
+    width: 500px;
+    box-shadow: -2px 4px 5px lightblue;
+    @include flexbox(center, row );
+    height: 50vh;
+
+    .results-container{
+        background: linear-gradient(to bottom, $Light-slate-blue, $Light-royal-blue );
+        height: 100%;
+        width: 50%;
+        border-radius: 20px;
+        @include flexbox(center,column );
+        line-height: 1.8;
+        gap: 20px;
+        color: hsl(0, 0, 100%);
+        
+
+        .results{
+            border-radius: 50%;
+            background:linear-gradient(to bottom, $Violet-blue-circle, $Persian-blue-circle);
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            @include flexbox(center,column );
+
+            span:nth-child(1){
+                font-size: 30px;
+                font-weight: 800;
+            }
+           
+        }
+        .credits{
+            text-align: center;
+        }
+    }
+
+    .summary{
+        height: 100%;
+        width: 50%;
+        border-radius: 20px;
+        line-height: 1.8;
+        gap: 20px;
+        padding: 10px;
+        position: relative;
+
+        .details-container{
+            padding: 0 20px;
+            margin-top: 35px;
+
+            .sums-details{
+                font-size: 16px;
+                @include flexbox(space-between, row);
+                gap: 15px;
+
+                .details{
+                    @include flexbox(center, row );
+                    gap: 10px;
+                }
+            }
+        }
+        button{
+            background-color: hsl(230, 13%, 9%);
+            color: #fff;
+            box-sizing: border-box;
+            padding: 10px;
+            width: 80%;
+            text-align: center;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            transition: all 500ms ease-in-out;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &:hover{
+                box-shadow: 2px 2px 10px 10px grey;
+            }
+        }
+    }
+
+
+}
+.attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
