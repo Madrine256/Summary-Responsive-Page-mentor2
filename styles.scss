@@ -2,11 +2,11 @@
 @import url("https://fonts.google.com/specimen/Hanken+Grotesk");
 
 // variables
-$Light-slate-blue: hsl(252, 100%, 67%);
-$Light-royal-blue: hsl(241, 81%, 54%);
+$Light-slate-blue: hsl(252, 43%, 52%);
+$Light-royal-blue: hsl(241, 91%, 49%);
 
-$Violet-blue-circle: hsla(256, 72%, 46%, 1);
-$Persian-blue-circle: hsla(241, 72%, 46%, 0);
+$Violet-blue-circle: rgb(70, 10, 233);
+$Persian-blue-circle: hsla(240, 90%, 4%, 0.849);
 // end of variables 
 *{
 
@@ -24,96 +24,165 @@ body{
 font-family: 'Hanken Grotesk' , sans-serif;
 min-height: 100vh;
 @include flexbox( center, column);
+gap: 2rem;
 }
-
 p{
     font-size: 18px;
+    font-weight: 500;
 }
-
 .container{
+    background:hsl(0, 0%, 100%);
+    box-shadow: 2px 2px 6px grey;
+    border-radius: 20px;
     width: 500px;
-    box-shadow: -2px 4px 5px lightblue;
-    @include flexbox(center, row );
-    height: 50vh;
+    @include flexbox(center,row );
+    align-items: stretch;
+    gap: 10px;
+    transition: all 500ms ease-in-out;
 
-    .results-container{
-        background: linear-gradient(to bottom, $Light-slate-blue, $Light-royal-blue );
-        height: 100%;
-        width: 50%;
+.card{
+    width: 50%;
+}
+    .card.results{
+        background: linear-gradient(to bottom, $Light-slate-blue, $Light-royal-blue);
+        @include flexbox(space-evenly, column);
+        gap: 10px;
         border-radius: 20px;
-        @include flexbox(center,column );
-        line-height: 1.8;
-        gap: 20px;
-        color: hsl(0, 0, 100%);
-        
-
-        .results{
-            border-radius: 50%;
-            background:linear-gradient(to bottom, $Violet-blue-circle, $Persian-blue-circle);
-            width: 100px;
-            height: 100px;
-            padding: 10px;
-            @include flexbox(center,column );
-
-            span:nth-child(1){
-                font-size: 30px;
-                font-weight: 800;
-            }
-           
+        color: #fff;
+      padding: 25px 10px;
+        h1{
+            color:  hsl(240, 1%, 75%);
         }
-        .credits{
+        .total{
+            border-radius: 50%;
+            background-image: linear-gradient(to bottom, $Persian-blue-circle, $Violet-blue-circle);
+            padding: 25px;
             text-align: center;
+            line-height: 1.5;
+            width: 130px;
+            
+
+            strong{
+                display: block;
+                font-weight: 900;
+                font-size: 35px;
+            }
+            span{
+                display: block;
+                color: rgb(128, 128, 128);
+                font-weight: 700;
+            }
+        }
+        .comment{
+            text-align: center;
+            padding: 15px;
+            line-height: 1.6;
+            strong{
+                line-height: 2.1;
+                font-weight: bolder;
+                font-size: 18px;
+            }
+            p{
+                font-size: 15px;
+            }
         }
     }
-
-    .summary{
-        height: 100%;
-        width: 50%;
-        border-radius: 20px;
-        line-height: 1.8;
-        gap: 20px;
-        padding: 10px;
-        position: relative;
+    .card.summary{
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
 
         .details-container{
-            padding: 0 20px;
-            margin-top: 35px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+            .details{
+                margin: 10px;
+                @include flexbox(space-between,row );
+                padding: 12px 10px;
+                font-size: 14px;
+                border-radius: 8px;
 
-            .sums-details{
-                font-size: 16px;
-                @include flexbox(space-between, row);
-                gap: 15px;
+                .decription{
+                    @include flexbox(center,row );
+                    gap: 5px;
+                   p{
+                    font-size: 14px;
+                   } 
 
-                .details{
-                    @include flexbox(center, row );
-                    gap: 10px;
+                }
+                .out-of{
+                    span.bold{
+                        font-weight: 900;
+                    }
+                    span.grey-like{
+                        font-weight: 700;
+                        color: grey;
+                    }
+                }
+               
+
+                
+            }
+            .reaction{
+                background-color: rgba(255, 192, 203, 0.459);
+                p{
+                    color: hsl(0, 100%, 67%);
+                }
+            }
+            .memory{
+                background-color: rgba(201, 183, 21, 0.192);
+                p{
+                    color: hsl(39, 100%, 56%);
+                }
+            }
+            .verbal{
+                background-color: rgba(21, 201, 81, 0.295);
+                p{
+                    color: hsl(166, 100%, 37%);
+                }
+            }
+            .visual{
+                background-color: hsl(241, 100%, 89%);
+                p{
+                    color: hsl(234, 85%, 45%);
                 }
             }
         }
         button{
-            background-color: hsl(230, 13%, 9%);
+            background: #000;
             color: #fff;
-            box-sizing: border-box;
             padding: 10px;
-            width: 80%;
+            border-radius: 30px;
             text-align: center;
-            border-radius: 10px;
-            outline: none;
             border: none;
+            outline: none;
             cursor: pointer;
-            transition: all 500ms ease-in-out;
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
+            transition:all 500ms ease-in-out;
 
             &:hover{
-                box-shadow: 2px 2px 10px 10px grey;
+                opacity: 0.5;
             }
         }
     }
-
-
 }
-.attribution { font-size: 11px; text-align: center; }
+@media all and  (max-width:375px){
+    .container{
+        width: 100%;
+        @include flexbox(center,column );
+        border-radius: 0;
+
+        .card{
+            width: 100%;
+        }
+        .card.results{
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
+   
+}
+.attribution { 
+    font-size: 11px; text-align: center;}
     .attribution a { color: hsl(228, 45%, 44%); }

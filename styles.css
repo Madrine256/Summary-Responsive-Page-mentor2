@@ -12,101 +12,169 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  gap: 2rem;
 }
 
 p {
   font-size: 18px;
+  font-weight: 500;
 }
 
 .container {
+  background: hsl(0, 0%, 100%);
+  box-shadow: 2px 2px 6px grey;
+  border-radius: 20px;
   width: 500px;
-  box-shadow: -2px 4px 5px lightblue;
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  height: 50vh;
+  align-items: stretch;
+  gap: 10px;
+  transition: all 500ms ease-in-out;
 }
-.container .results-container {
-  background: linear-gradient(to bottom, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
-  height: 100%;
+.container .card {
   width: 50%;
-  border-radius: 20px;
+}
+.container .card.results {
+  background: linear-gradient(to bottom, hsl(252, 43%, 52%), hsl(241, 91%, 49%));
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
-  line-height: 1.8;
-  gap: 20px;
-  color: hsl(0, 0%, 100%);
+  gap: 10px;
+  border-radius: 20px;
+  color: #fff;
+  padding: 25px 10px;
 }
-.container .results-container .results {
+.container .card.results h1 {
+  color: hsl(240, 1%, 75%);
+}
+.container .card.results .total {
   border-radius: 50%;
-  background: linear-gradient(to bottom, hsl(256, 72%, 46%), hsla(241, 72%, 46%, 0));
-  width: 100px;
-  height: 100px;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-.container .results-container .results span:nth-child(1) {
-  font-size: 30px;
-  font-weight: 800;
-}
-.container .results-container .credits {
+  background-image: linear-gradient(to bottom, hsla(240, 90%, 4%, 0.849), rgb(70, 10, 233));
+  padding: 25px;
   text-align: center;
+  line-height: 1.5;
+  width: 130px;
 }
-.container .summary {
-  height: 100%;
-  width: 50%;
-  border-radius: 20px;
-  line-height: 1.8;
-  gap: 20px;
-  padding: 10px;
-  position: relative;
+.container .card.results .total strong {
+  display: block;
+  font-weight: 900;
+  font-size: 35px;
 }
-.container .summary .details-container {
-  padding: 0 20px;
-  margin-top: 35px;
+.container .card.results .total span {
+  display: block;
+  color: rgb(128, 128, 128);
+  font-weight: 700;
 }
-.container .summary .details-container .sums-details {
-  font-size: 16px;
+.container .card.results .comment {
+  text-align: center;
+  padding: 15px;
+  line-height: 1.6;
+}
+.container .card.results .comment strong {
+  line-height: 2.1;
+  font-weight: bolder;
+  font-size: 18px;
+}
+.container .card.results .comment p {
+  font-size: 15px;
+}
+.container .card.summary {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.container .card.summary .details-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .card.summary .details-container .details {
+  margin: 10px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  gap: 15px;
+  padding: 12px 10px;
+  font-size: 14px;
+  border-radius: 8px;
 }
-.container .summary .details-container .sums-details .details {
+.container .card.summary .details-container .details .decription {
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
-.container .summary button {
-  background-color: hsl(230, 13%, 9%);
+.container .card.summary .details-container .details .decription p {
+  font-size: 14px;
+}
+.container .card.summary .details-container .details .out-of span.bold {
+  font-weight: 900;
+}
+.container .card.summary .details-container .details .out-of span.grey-like {
+  font-weight: 700;
+  color: grey;
+}
+.container .card.summary .details-container .reaction {
+  background-color: rgba(255, 192, 203, 0.459);
+}
+.container .card.summary .details-container .reaction p {
+  color: hsl(0, 100%, 67%);
+}
+.container .card.summary .details-container .memory {
+  background-color: rgba(201, 183, 21, 0.192);
+}
+.container .card.summary .details-container .memory p {
+  color: hsl(39, 100%, 56%);
+}
+.container .card.summary .details-container .verbal {
+  background-color: rgba(21, 201, 81, 0.295);
+}
+.container .card.summary .details-container .verbal p {
+  color: hsl(166, 100%, 37%);
+}
+.container .card.summary .details-container .visual {
+  background-color: hsl(241, 100%, 89%);
+}
+.container .card.summary .details-container .visual p {
+  color: hsl(234, 85%, 45%);
+}
+.container .card.summary button {
+  background: #000;
   color: #fff;
-  box-sizing: border-box;
   padding: 10px;
-  width: 80%;
+  border-radius: 30px;
   text-align: center;
-  border-radius: 10px;
-  outline: none;
   border: none;
+  outline: none;
   cursor: pointer;
   transition: all 500ms ease-in-out;
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
 }
-.container .summary button:hover {
-  box-shadow: 2px 2px 10px 10px grey;
+.container .card.summary button:hover {
+  opacity: 0.5;
 }
 
+@media all and (max-width: 375px) {
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0;
+  }
+  .container .card {
+    width: 100%;
+  }
+  .container .card.results {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
 .attribution {
   font-size: 11px;
   text-align: center;
