@@ -40,7 +40,7 @@ Users should be able to:
 
 ### What I learned
 
-Always add background color to your body and containers else browsers use default for unspecified containers which is something you might not need.
+Always add background color to your body and containers else browsers use default for unspecified container background-color which is something you might not need.
 
 ### Continued development
 
